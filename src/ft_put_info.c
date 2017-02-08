@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mlx_init.c                                      :+:      :+:    :+:   */
+/*   ft_put_info.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/07 17:25:07 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/07 21:52:12 by vrybalko         ###   ########.fr       */
+/*   Created: 2017/02/05 17:26:17 by vrybalko          #+#    #+#             */
+/*   Updated: 2017/02/08 19:46:14 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
 
-t_e		*ft_mlx_init(char *s)
+void		ft_putstry(t_e *e, char *str)
 {
-	t_e		*e;
+	e->txt_shift += 15;
+	mlx_string_put(e->mlx, e->win, 15, e->txt_shift, 0xffffff, str);
+}
 
-	e = (t_e *)malloc(sizeof(t_e));
-	e->mlx = mlx_init();
-	e->height = 1300;
-	e->width = 1300;
-	e->x_sh = 0;
-	e->y_sh = 0;
-	e->zo = 0;
-	e->win = mlx_new_window(e->mlx, e->width, e->height, s);
-	e->img = mlx_new_image(e->mlx, e->width, e->height);
-	e->max = 100;
-	return (e);
+
+void		ft_put_info(t_e *e)
+{
+	ft_putstry(e, ft_strjoin("Zoom: ", ft_itoa((int)(e->zo * 1000))));
+	ft_putstry(e, ft_strjoin("x shift: ", ft_itoa(e->x_sh)));
+	ft_putstry(e, ft_strjoin("y shift: ", ft_itoa(e->y_sh)));
+	e->txt_shift = 0;
 }

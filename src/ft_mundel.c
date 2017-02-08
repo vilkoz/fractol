@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 17:55:58 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/07 21:51:34 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/08 21:09:31 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,22 @@ void	ft_mundel(t_e *e)
 		j = -1;
 		while (++j < e->width)
 		{
-			e->c_re = ((j - e->width / 2 + e->x_sh) * 4. / e->width) / e->zo;
-			e->c_im = ((i - e->height / 2 + e->y_sh) * 4. / e->height) / e->zo;
+			e->c_re = ((j - e->width / 2 + e->x_sh) * 4. / e->width) / 1. * e->zo;
+			e->c_im = ((i - e->height / 2 + e->y_sh) * 4. / e->height) / 1. * e->zo;
 			e->x = 0;
 			e->y = 0;
 			e->iter = 0;
 			while (e->x * e->x + e->y * e->y < 4 && e->iter < e->max)
 			{
-				e->x_new = e->x * e->x - e->y * e->y + e->c_re;
-				e->y = 2 * e->x * e->y + e->c_im;
-				e->x = e->x_new;
+				e->x_2 = e->x * e->x - e->y * e->y + e->c_re;
+				e->y_2 = 2 * e->x * e->y + e->c_im;
+				if (e->x == e->x_2 && e->y == e->y_2)
+				{
+					e->iter = e->max;
+					break;
+				}
+				e->x = e->x_2;
+				e->y = e->y_2;
 				e->iter++;
 			}
 			(e->iter < e->max) ? ft_img_px_put(e, j, i, e->colors[e->iter]) :

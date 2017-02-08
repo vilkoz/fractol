@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_img_px_put.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/07 17:15:47 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/07 18:26:41 by vrybalko         ###   ########.fr       */
+/*   Created: 2017/02/08 15:59:57 by vrybalko          #+#    #+#             */
+/*   Updated: 2017/02/08 16:00:02 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
 
-int		main(int argc, char **argv)
+void	ft_img_px_put(t_e *e, int x, int y, int rgb)
 {
-	t_e		*e;
+	int				bpp;
+	int				sl;
+	int				en;
+	char			*imag;
+	unsigned int	tmp;
 
-	e = ft_mlx_init("test");
-	ft_mundel(e);
-	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-	mlx_loop(e->mlx);
-	return (0);
+	imag = mlx_get_data_addr(e->img, &bpp, &sl, &en);
+	tmp = (mlx_get_color_value(e->mlx, rgb));
+	if (x > 0 && x < e->width && y > 0 && y < e->height)
+		ft_memcpy((void *)((imag + y * e->width*
+						(bpp / 8) + x * (bpp / 8))), (void *)&tmp, 4);
 }
