@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 17:16:07 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/08 20:51:58 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/09 20:34:43 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,16 @@ typedef struct	s_k
 	int			zoom;
 	int			x_sh;
 	int			y_sh;
+	int			m_zo;
 	int			gopa;
 }				t_k;
+
+typedef struct	s_rgb
+{
+	int			r;
+	int			g;
+	int			b;
+}				t_rgb;
 
 typedef struct	s_e
 {
@@ -47,11 +55,15 @@ typedef struct	s_e
 	double		y;
 	int			iter;
 	double		zo;
-	long long	x_sh;
-	long long	y_sh;
+	double		x_sh;
+	double		y_sh;
 	t_k			k;
 	int			fract_type;
 	int			txt_shift;
+	double		m_x;
+	double		m_dx;
+	double		m_dy;
+	double		m_y;
 }				t_e;
 
 

@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 17:26:17 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/08 19:46:14 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/09 20:34:48 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void		ft_putstry(t_e *e, char *str)
 void		ft_put_info(t_e *e)
 {
 	ft_putstry(e, ft_strjoin("Zoom: ", ft_itoa((int)(e->zo * 1000))));
-	ft_putstry(e, ft_strjoin("x shift: ", ft_itoa(e->x_sh)));
-	ft_putstry(e, ft_strjoin("y shift: ", ft_itoa(e->y_sh)));
+	ft_putstry(e, ft_strjoin("x shift: ", ft_itoa(e->x_sh * 1000)));
+	ft_putstry(e, ft_strjoin("y shift: ", ft_itoa(e->y_sh * 1000)));
+	ft_putstry(e, ft_strjoin("x mouse: ", ft_itoa(e->m_x * 1000)));
+	ft_putstry(e, ft_strjoin("y mouse: ", ft_itoa(e->m_y * 1000)));
 	e->txt_shift = 0;
 }

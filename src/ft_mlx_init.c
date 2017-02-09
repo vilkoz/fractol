@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 17:25:07 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/08 21:03:43 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/09 20:34:46 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_e		*ft_mlx_init(char *s, int type)
 	e->zo = 1;
 	e->win = mlx_new_window(e->mlx, e->width, e->height, s);
 	e->img = mlx_new_image(e->mlx, e->width, e->height);
-	e->max = 30;
+	e->max = 50;
 	e->fract_type = type;
 	return (e);
 }
