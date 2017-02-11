@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_burning.c                                       :+:      :+:    :+:   */
+/*   ft_sinusoidal.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/10 19:03:44 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/11 18:22:37 by vrybalko         ###   ########.fr       */
+/*   Created: 2017/02/11 15:21:24 by vrybalko          #+#    #+#             */
+/*   Updated: 2017/02/11 16:10:34 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,18 @@ static int		*init_colors(t_e *e)
 
 static void		ft_iterate(t_e *e)
 {
-	e->x_2 = e->x * e->x;
-	e->y_2 = e->y * e->y;
 	while (e->x * e->x + e->y * e->y < 4 && e->iter < e->max)
 	{
-		e->y = fabs(e->x * e->y);
-		e->y += e->y + e->c_im;
-		e->x = e->x_2 - e->y_2 + e->c_re;
-		e->x_2 = e->x * e->x;
-		e->y_2 = e->y * e->y;
+		e->x = sin(e->x);
+		e->y = sin(e->y);
+		e->x_2 = e->x * e->x - e->y * e->y + e->c_re;
+		e->y = 2 * e->x * e->y + e->c_im;
+		e->x = e->x_2;
 		e->iter++;
 	}
 }
 
-void			ft_burning(t_e *e)
+void			ft_sinusoidal(t_e *e)
 {
 	int		i;
 	int		j;

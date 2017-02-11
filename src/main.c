@@ -6,19 +6,36 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 17:15:47 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/08 16:50:44 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/11 15:25:24 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
 
-int		main(int argc, char **argv)
+static int	ft_putusage(void)
+{
+	ft_putstr_fd("usage: ./fractol <mundelbrot | julia |", 2);
+	ft_putstr_fd(" burning | sinusoidal >\n", 2);
+	return (0);
+}
+
+int			main(int argc, char **argv)
 {
 	t_e		*e;
 
-	(void)argc;
-	(void)argv;
-	e = ft_mlx_init("test", 0);
+	e = NULL;
+	if (argc != 2)
+		return (ft_putusage());
+	if (ft_strcmp(argv[1], "mundelbrot") == 0)
+		e = ft_mlx_init("test", 1);
+	else if (ft_strcmp(argv[1], "julia") == 0)
+		e = ft_mlx_init("test", 0);
+	else if (ft_strcmp(argv[1], "burning") == 0)
+		e = ft_mlx_init("test", 2);
+	else if (ft_strcmp(argv[1], "sinusoidal") == 0)
+		e = ft_mlx_init("test", 3);
+	else
+		return (ft_putusage());
 	ft_mlx_events(e);
 	return (0);
 }

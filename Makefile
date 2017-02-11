@@ -6,7 +6,7 @@
 #    By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/23 14:08:11 by vrybalko          #+#    #+#              #
-#    Updated: 2017/02/08 19:05:59 by vrybalko         ###   ########.fr        #
+#    Updated: 2017/02/11 20:36:20 by vrybalko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ VPATH = src:includes
 
 BIN_DIR = bin/
 
-FLAGS = -Wall -Wextra -Werror -I$(IDIR) -g
+FLAGS = -O3 -Wall -Wextra -Werror -I$(IDIR) -g
 
 FLAGS_MLX = -lmlx -framework OpenGl -framework AppKit
 
@@ -31,7 +31,11 @@ SRCS = main.c					\
 	   ft_mlx_events.c			\
 	   ft_mlx_init.c			\
 	   ft_mundel.c				\
-	   ft_put_info.c
+	   ft_put_info.c			\
+	   ft_julia.c				\
+	   ft_burning.c				\
+	   ft_sinusoidal.c			\
+	   ft_view.c
 
 
 BINS = $(addprefix $(BIN_DIR), $(SRCS:.c=.o))
@@ -57,3 +61,6 @@ fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
+
+f: all
+	./$(NAME) julia

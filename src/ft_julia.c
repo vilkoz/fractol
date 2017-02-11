@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 16:35:39 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/10 18:02:21 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/11 17:53:07 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void			ft_julia(t_e *e)
 					* e->y_sh * e->zo) / (e->height * e->zo);
 			e->iter = 0;
 			ft_iterate(e);
-			(e->iter < e->max) ? ft_img_px_put(e, j, i, e->colors[e->iter]) :
-				ft_img_px_put(e, j, i, 0);
+			(e->iter < e->max) ? ft_img_px_put(e, j, i, e->colors[e->iter] +
+			e->r_sh): ft_img_px_put(e, j, i, 0);
 		}
 	}
 	ft_img_px_put(e, e->width / 2, e->height / 2, 0xFFFFFF);
