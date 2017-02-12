@@ -6,13 +6,16 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 17:16:07 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/11 20:36:34 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/12 19:46:11 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _FRACT_H
 # define _FRACT_H
-# define RAD (M_PI / 180)
+# define RAD (0.0175433)
+# define A (45 * RAD)
+# define B (45 * RAD)
+# define G (0 * RAD)
 
 # include "../libft/libft.h"
 # include "mlx.h"
@@ -36,6 +39,27 @@ typedef struct		s_k
 	int				gopa;
 }					t_k;
 
+typedef struct		s_p
+{
+	double			x;
+	double			y;
+}					t_p;
+
+typedef struct		s_lin
+{
+	int				dx;
+	int				dy;
+	int				sx;
+	int				sy;
+	int				d;
+	int				d1;
+	int				d2;
+	int				error;
+	int				error2;
+	t_p				*p1;
+	t_p				*p2;
+}					t_lin;
+
 typedef struct		s_rgb
 {
 	int				r;
@@ -46,8 +70,11 @@ typedef struct		s_rgb
 typedef struct		s_lst
 {
 	int				x;
+	int				x1;
 	int				y;
+	int				y1;
 	int				z;
+	int				z1;
 	int				rgb;
 	struct s_lst	*next;
 }					t_lst;
@@ -94,6 +121,7 @@ void				ft_burning(t_e *e);
 void				ft_sinusoidal(t_e *e);
 t_lst				*ft_lst_add(t_lst *new, t_lst *old);
 t_lst				*ft_lst_new(int x, int y, int z, int rgb);
-void				ft_view(t_e *all);
+t_e					*ft_view(t_e *all);
+void				ft_koch(t_e *e);
 
 #endif

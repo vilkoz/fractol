@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 17:26:17 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/11 16:02:33 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/12 16:31:51 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ void		ft_put_info(t_e *e)
 	ft_put_fractal_type(e);
 	ft_putstry(e, ft_strjoin("iterations: ", ft_itoa(e->max)));
 	ft_putstry(e, ft_strjoin("e->f_type: ", ft_itoa(e->f_type)));
+	ft_putstry(e, ft_strjoin("e->k.tr_d: ", ft_itoa(e->k.tr_d)));
 	e->txt_shift = 0;
 }

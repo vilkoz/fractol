@@ -6,7 +6,7 @@
 #    By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/23 14:08:11 by vrybalko          #+#    #+#              #
-#    Updated: 2017/02/11 20:36:20 by vrybalko         ###   ########.fr        #
+#    Updated: 2017/02/12 20:15:00 by vrybalko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SRCS = main.c					\
 	   ft_julia.c				\
 	   ft_burning.c				\
 	   ft_sinusoidal.c			\
-	   ft_view.c
+	   ft_view.c				\
+	   ft_koch.c
 
 
 BINS = $(addprefix $(BIN_DIR), $(SRCS:.c=.o))
@@ -63,4 +64,4 @@ fclean: clean
 re: fclean all
 
 f: all
-	./$(NAME) julia
+	./$(NAME) koch

@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:21:24 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/11 16:10:34 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/12 17:47:27 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,20 @@ static void		ft_iterate(t_e *e)
 	}
 }
 
+static void		ft_three(t_e *e, int j, int i)
+{
+	if (e->k.tr_d == 1 && j % 5 == 0 && i % 5 == 0)
+	{
+		e->lst = (e->iter < e->max) ? ft_lst_add(e->lst, ft_lst_new(j, i,
+			e->iter, e->colors[e->iter] + e->r_sh)) :
+			ft_lst_add(e->lst, ft_lst_new(j, i, e->iter,
+						e->colors[e->iter] + e->r_sh));
+	}
+	else if (e->k.tr_d != 1)
+		(e->iter < e->max) ? ft_img_px_put(e, j, i, e->colors[e->iter] +
+				e->r_sh) : ft_img_px_put(e, j, i, 0);
+}
+
 void			ft_sinusoidal(t_e *e)
 {
 	int		i;
@@ -62,8 +76,7 @@ void			ft_sinusoidal(t_e *e)
 			e->y = 0;
 			e->iter = 0;
 			ft_iterate(e);
-			(e->iter < e->max) ? ft_img_px_put(e, j, i, e->colors[e->iter] +
-					e->r_sh) : ft_img_px_put(e, j, i, 0);
+			ft_three(e, j, i);
 		}
 	}
 	ft_img_px_put(e, e->width / 2, e->height / 2, 0xFFFFFF);
