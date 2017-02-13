@@ -12,14 +12,12 @@
 
 #include "fract.h"
 
-t_e		*ft_mlx_init(char *s, int type)
+t_e		*ft_mlx_init(char *s, int type, t_e *e)
 {
-	t_e		*e;
-
-	e = (t_e *)malloc(sizeof(t_e));
-	e->mlx = mlx_init();
-	e->height = 1300;
-	e->width = 1300;
+	if (e->mlx == NULL)
+		e->mlx = mlx_init();
+	e->height = 700;
+	e->width = 700;
 	e->x_sh = 0;
 	e->y_sh = 0;
 	e->zo = 1;

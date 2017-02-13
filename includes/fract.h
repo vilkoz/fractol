@@ -111,7 +111,7 @@ typedef struct		s_e
 }					t_e;
 
 
-t_e					*ft_mlx_init(char *s, int type);
+t_e					*ft_mlx_init(char *s, int type, t_e *e);
 void				ft_img_px_put(t_e *e, int x, int y, int rgb);
 void				ft_mundel(t_e *e);
 void				ft_mlx_events(t_e *e);
@@ -123,5 +123,6 @@ t_lst				*ft_lst_add(t_lst *new, t_lst *old);
 t_lst				*ft_lst_new(int x, int y, int z, int rgb);
 t_e					*ft_view(t_e *all);
 void				ft_koch(t_e *e);
+int					loop_hook(t_e *e);
 
 #endif

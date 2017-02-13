@@ -177,5 +177,5 @@ void	ft_mlx_events(t_e *e)
 	mlx_mouse_hook(e->win, mouse_hook, e);
 	mlx_hook(e->win, 6, 65, move_hook, e);
 	mlx_loop_hook(e->mlx, loop_hook, e);
-	mlx_loop(e->mlx);
+	loop_hook(e);
 }

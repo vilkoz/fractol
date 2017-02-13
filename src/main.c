@@ -15,29 +15,52 @@
 static int	ft_putusage(void)
 {
 	ft_putstr_fd("usage: ./fractol <mandelbrot | julia |", 2);
-	ft_putstr_fd(" burning | sinusoidal >\n", 2);
+	ft_putstr_fd(" burning | sinusoidal>\n", 2);
+	return (0);
+}
+
+int			ft_arg_check(char *argv, t_e *e)
+{
+	if (ft_strcmp(argv, "mandelbrot") == 0)
+		e = ft_mlx_init("Fractol", 1, e);
+	else if (ft_strcmp(argv, "julia") == 0)
+		e = ft_mlx_init("Fractol", 0, e);
+	else if (ft_strcmp(argv, "burning") == 0)
+		e = ft_mlx_init("Fractol", 2, e);
+	else if (ft_strcmp(argv, "sinusoidal") == 0)
+		e = ft_mlx_init("Fractol", 3, e);
+	else if (ft_strcmp(argv, "koch") == 0)
+		e = ft_mlx_init("Fractol", 4, e);
+	else
+		return (-1);
 	return (0);
 }
 
 int			main(int argc, char **argv)
 {
-	t_e		*e;
+	t_e		e;
+	t_e		e1;
 
-	e = NULL;
-	if (argc != 2)
+	e.mlx = NULL;
+	if (argc < 2 || argc > 3)
 		return (ft_putusage());
-	if (ft_strcmp(argv[1], "mandelbrot") == 0)
-		e = ft_mlx_init("test", 1);
-	else if (ft_strcmp(argv[1], "julia") == 0)
-		e = ft_mlx_init("test", 0);
-	else if (ft_strcmp(argv[1], "burning") == 0)
-		e = ft_mlx_init("test", 2);
-	else if (ft_strcmp(argv[1], "sinusoidal") == 0)
-		e = ft_mlx_init("test", 3);
-	else if (ft_strcmp(argv[1], "koch") == 0)
-		e = ft_mlx_init("test", 4);
+	if (argc == 2)
+	{
+		if (ft_arg_check(argv[1], &e) == -1)
+			return (ft_putusage());
+		ft_mlx_events(&e);
+		mlx_loop(e.mlx);
+	}
 	else
-		return (ft_putusage());
-	ft_mlx_events(e);
+	{
+		if (ft_arg_check(argv[1], &e) == -1)
+			return (ft_putusage());
+		e1.mlx = e.mlx;
+		if (ft_arg_check(argv[2], &e1) == -1)
+			return (ft_putusage());
+		ft_mlx_events(&e);
+		ft_mlx_events(&e1);
+		mlx_loop(e.mlx);
+	}
 	return (0);
 }
