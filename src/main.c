@@ -14,7 +14,7 @@
 
 static int	ft_putusage(void)
 {
-	ft_putstr_fd("usage: ./fractol <mundelbrot | julia |", 2);
+	ft_putstr_fd("usage: ./fractol <mandelbrot | julia |", 2);
 	ft_putstr_fd(" burning | sinusoidal >\n", 2);
 	return (0);
 }
@@ -26,7 +26,7 @@ int			main(int argc, char **argv)
 	e = NULL;
 	if (argc != 2)
 		return (ft_putusage());
-	if (ft_strcmp(argv[1], "mundelbrot") == 0)
+	if (ft_strcmp(argv[1], "mandelbrot") == 0)
 		e = ft_mlx_init("test", 1);
 	else if (ft_strcmp(argv[1], "julia") == 0)
 		e = ft_mlx_init("test", 0);
