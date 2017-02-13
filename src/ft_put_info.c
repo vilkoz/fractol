@@ -29,12 +29,22 @@ void		ft_put_fractal_type(t_e *e)
 	if (e->f_type == 3)
 		ft_putstry(e, "fractal: sinusoidal");
 	if (e->f_type == 4)
-		ft_putstry(e, "fractal: koch curve");
+		ft_putstry(e, "fractal: koch snowflake");
 }
 
 void		ft_put_info(t_e *e)
 {
 	ft_putstry(e, ft_strjoin("Zoom: ", ft_itoa((int)(e->zo * 1000))));
 	ft_put_fractal_type(e);
+	if (e->f_type == 0 && e->k.m_co == 1)
+		ft_putstry(e, "mouse control: on");
+	if (e->f_type == 0 && e->k.m_co == 0)
+		ft_putstry(e, "mouse control: off");
+	ft_putstry(e, "Controls:");
+	ft_putstry(e, "mwhell - zoom at mouse point");
+	ft_putstry(e, "+,-    - zoom at center");
+	ft_putstry(e, "arrows - movement");
+	ft_putstry(e, "3      - enable 3D (if avalible)");
+	ft_putstry(e, "M      - on / off mouse control (julia)");
 	e->txt_shift = 0;
 }
