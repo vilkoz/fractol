@@ -24,7 +24,7 @@ static int		*init_colors(t_e *e)
 
 	i = -1;
 	colors = (int *)malloc(sizeof(int) * e->max);
-	while (++i < e->max + 1)
+	while (++i < e->max)
 		colors[i] = connect_rgb(i * 5, 1, i * 10);
 	return (colors);
 }

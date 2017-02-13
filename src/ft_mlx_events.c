@@ -19,6 +19,10 @@ void	keys_init(t_k *k)
 	k->y_sh = 0;
 	k->m_co = 1;
 	k->tr_d = 0;
+	k->r_sh = 0;
+	k->g_sh = 0;
+	k->b_sh = 0;
+	k->m_zo = 0;
 }
 
 void	ft_mzoom(t_e *e)
