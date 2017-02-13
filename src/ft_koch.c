@@ -76,7 +76,7 @@ static void		draw_segment(t_e *e, int iter, t_p p1, t_p p2)
 		p_b = point_in(p2.x - dist.x, p2.y - dist.y);
 		sin60 = -0.866025403784438646763723170752936183471402626905190;
 		p_tip = point_in(p_a.x + (int)(dist.x * 0.5 + dist.y * sin60),
-						p_a.y + (int)(dist.y * 0.5 - dist.x * sin60));
+				p_a.y + (int)(dist.y * 0.5 - dist.x * sin60));
 		draw_segment(e, iter - 1, p1, p_a);
 		draw_segment(e, iter - 1, p_a, p_tip);
 		draw_segment(e, iter - 1, p_tip, p_b);
@@ -90,13 +90,20 @@ void			ft_koch(t_e *e)
 	t_p		p2;
 	t_p		p3;
 
-	p1 = point_in((e->width / 2) * e->zo + e->x_sh,
-					(e->height / 3) * e->zo + e->y_sh);
-	p2 = point_in((e->width / 4) * e->zo + e->x_sh,
-					(e->height / 3) * 2 * e->zo + e->y_sh);
-	p3 = point_in((e->width / 4) * 3 * e->zo + e->x_sh,
-					(e->height / 3) * 2 * e->zo + e->y_sh);
+	p1 = point_in(((0.) * e->width * e->zo) / 4 +
+			(e->width / 2) - (e->x_sh * e->width * e->zo) / 4,
+			((-0.5) * e->height * e->zo) / 4 +
+			(e->height / 2) - (e->y_sh * e->height * e->zo) / 4);
+	p2 = point_in(((-0.5) * e->width * e->zo) / 4 +
+			(e->width / 2) - (e->x_sh * e->width * e->zo) / 4,
+			((0.5) * e->height * e->zo) / 4 +
+			(e->height / 2) - (e->y_sh * e->height * e->zo) / 4);
+	p3 = point_in(((0.5) * e->width * e->zo) / 4 +
+			(e->width / 2) - (e->x_sh * e->width * e->zo) / 4,
+			((0.5) * e->height * e->zo) / 4 +
+			(e->height / 2) - (e->y_sh * e->height * e->zo) / 4);
 	draw_segment(e, 10, p1, p2);
 	draw_segment(e, 10, p2, p3);
 	draw_segment(e, 10, p3, p1);
+	ft_img_px_put(e, e->width / 2, e->height / 2, 0xffffff);
 }

@@ -27,29 +27,17 @@ void	keys_init(t_k *k)
 
 void	ft_mzoom(t_e *e)
 {
-	if (e->k.m_zo == 1 && e->f_type != 4)
+	if (e->k.m_zo == 1)
 	{
 		e->zo *= 1.1;
-		e->x_sh = e->m_x - (e->m_dx * 4) / (e->width * e->zo);
-		e->y_sh = e->m_y - (e->m_dy * 4) / (e->height * e->zo);
+		e->x_sh = e->m_x - e->m_dx / e->zo;
+		e->y_sh = e->m_y - e->m_dy / e->zo;
 	}
-	if (e->k.m_zo == -1 && e->f_type != 4)
+	if (e->k.m_zo == -1)
 	{
 		e->zo /= 1.1;
-		e->x_sh = e->m_x - (e->m_dx * 4) / (e->width * e->zo);
-		e->y_sh = e->m_y - (e->m_dy * 4) / (e->height * e->zo);
-	}
-	if (e->k.m_zo == 1 && e->f_type == 4)
-	{
-		e->zo *= 1.1;
-		e->x_sh = e->m_x - e->width / 2;
-		e->y_sh = e->m_y - e->height / 2;
-	}
-	if (e->k.m_zo == -1 && e->f_type == 4)
-	{
-		e->zo /= 1.1;
-		e->x_sh = e->m_x - e->width / 2;
-		e->y_sh = e->m_y - e->height / 2;
+		e->x_sh = e->m_x - e->m_dx / e->zo;
+		e->y_sh = e->m_y - e->m_dy / e->zo;
 	}
 		e->k.m_zo = 0;
 }
@@ -152,33 +140,21 @@ int		loop_hook(t_e *e)
 
 int		mouse_hook(int key, int x, int y, t_e *e)
 {
-	if (key == 5 && e->f_type != 4)
+	if (key == 5)
 	{
 		e->k.m_zo = +1;
 		e->m_x = (x * 1. - e->width / 2) * 4 / (e->width * e->zo) + e->x_sh;
 		e->m_y = (y * 1. - e->height / 2) * 4 / (e->height * e->zo) + e->y_sh;
-		e->m_dx = (x * 1. - e->width / 2);
-		e->m_dy = (y * 1. - e->height / 2);
+		e->m_dx = (x * 1. - e->width / 2) * 4 / (e->width);
+		e->m_dy = (y * 1. - e->height / 2) * 4 / (e->height);
 	}
-	if (key == 4 && e->f_type != 4)
+	if (key == 4)
 	{
 		e->k.m_zo = -1;
 		e->m_x = (x * 1. - e->width / 2) * 4 / (e->width * e->zo) + e->x_sh;
 		e->m_y = (y * 1. - e->height / 2) * 4 / (e->height * e->zo) + e->y_sh;
-		e->m_dx = (x * 1. - e->width / 2);
-		e->m_dy = (y * 1. - e->height / 2);
-	}
-	if (key == 5 && e->f_type == 4)
-	{
-		e->k.m_zo = +1;
-		e->m_x = x; 
-		e->m_y = y; 
-	}
-	if (key == 4 && e->f_type == 4)
-	{
-		e->k.m_zo = -1;
-		e->m_x = x; 
-		e->m_y = y; 
+		e->m_dx = (x * 1. - e->width / 2) * 4 / (e->width);
+		e->m_dy = (y * 1. - e->height / 2) * 4 / (e->height);
 	}
 	return (0);
 }
