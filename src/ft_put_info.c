@@ -35,11 +35,6 @@ void		ft_put_fractal_type(t_e *e)
 void		ft_put_info(t_e *e)
 {
 	ft_putstry(e, ft_strjoin("Zoom: ", ft_itoa((int)(e->zo * 1000))));
-	ft_putstry(e, ft_strjoin("x shift: ", ft_itoa((int)e->x_sh * 1000)));
-	ft_putstry(e, ft_strjoin("y shift: ", ft_itoa((int)e->y_sh * 1000)));
 	ft_put_fractal_type(e);
-	ft_putstry(e, ft_strjoin("iterations: ", ft_itoa(e->max)));
-	ft_putstry(e, ft_strjoin("e->f_type: ", ft_itoa(e->f_type)));
-	ft_putstry(e, ft_strjoin("e->k.tr_d: ", ft_itoa(e->k.tr_d)));
 	e->txt_shift = 0;
 }
