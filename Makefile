@@ -36,7 +36,9 @@ SRCS = main.c					\
 	   ft_burning.c				\
 	   ft_sinusoidal.c			\
 	   ft_view.c				\
-	   ft_koch.c
+	   ft_koch.c				\
+	   ft_mlx_helpers.c			\
+	   ft_hooks.c
 
 
 BINS = $(addprefix $(BIN_DIR), $(SRCS:.c=.o))

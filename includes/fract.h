@@ -132,5 +132,16 @@ t_lst				*ft_lst_new(int x, int y, int z, int rgb);
 t_e					*ft_view(t_e *all);
 void				ft_koch(t_e *e);
 int					loop_hook(t_e *e);
+void				keys_init(t_k *k);
+void				ft_mzoom(t_e *e);
+void				ft_frac_switch(t_e *e);
+void				ft_fract_ch(t_e *e);
+void				ft_i_max_chan(t_e *e, char sign);
+void				ft_tr_d_switch(t_e *e);
+int					key_press(int key, t_e *e);
+int					key_release(int key, t_e *e);
+int					loop_hook(t_e *e);
+int					mouse_hook(int key, int x, int y, t_e *e);
+int					move_hook(int x, int y, t_e *e);
 
 #endif

@@ -34,7 +34,7 @@ void		ft_put_fractal_type(t_e *e)
 
 void		ft_put_info(t_e *e)
 {
-	ft_putstry(e, ft_strjoin("Zoom: ", ft_itoa((int)(e->zo * 1000))));
+	ft_putstry(e, ft_strjoin("Zoom: ", ft_itoa((int)(e->zo * 100))));
 	ft_put_fractal_type(e);
 	if (e->f_type == 0 && e->k.m_co == 1)
 		ft_putstry(e, "mouse control: on");
