@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 17:15:47 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/14 18:12:42 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/14 21:30:54 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@ static int	ft_putusage(int type)
 	if (type == USAGE_MSG)
 	{
 		ft_putstr_fd("usage: ./fractol <mandelbrot | julia |", 2);
-		ft_putstr_fd(" burning | sinusoidal | koch | sierpinski>\n", 2);
+		ft_putstr_fd(" burning | sinusoidal | koch | sierpinski |", 2);
+		ft_putstr_fd(" sierpinski_square>\n", 2);
 	}
 	if (type == FRACT_LST)
 	{
 		ft_putstr_fd("Error: wrong argument!\nAvalible fractals:\n", 2);
 		ft_putstr_fd("\tmandelbrot\n\tjulia\n\tburning\n", 2);
-		ft_putstr_fd("\tsinusoidal\n\tkoch\n\tsierpinski\t", 2);
+		ft_putstr_fd("\tsinusoidal\n\tkoch\n\tsierpinski\n", 2);
+		ft_putstr_fd("\tsierpinski_square\n", 2);
 	}
 	return (0);
 }
@@ -42,6 +44,8 @@ int			ft_arg_check(char *argv, t_e *e)
 		e = ft_mlx_init("Fractol", 4, e);
 	else if (ft_strcmp(argv, "sierpinski") == 0)
 		e = ft_mlx_init("Fractol", 5, e);
+	else if (ft_strcmp(argv, "sierpinski_square") == 0)
+		e = ft_mlx_init("Fractol", 6, e);
 	else
 		return (-1);
 	return (0);

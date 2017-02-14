@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 17:16:07 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/14 18:10:57 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/14 21:26:59 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,14 @@ typedef struct		s_tr
 	t_p				p3;
 }					t_tr;
 
+typedef struct		s_sq
+{
+	t_p				p1;
+	t_p				p2;
+	t_p				p3;
+	t_p				p4;
+}					t_sq;
+
 t_e					*ft_mlx_init(char *s, int type, t_e *e);
 void				ft_img_px_put(t_e *e, int x, int y, int rgb);
 void				ft_mundel(t_e *e);
@@ -153,5 +161,6 @@ t_lin				line_init(t_p p1, t_p p2);
 void				ft_draw_line(t_e *all, t_p p1, t_p p2);
 t_p					point_in(int x, int y);
 void				ft_serp(t_e *e);
+void				ft_serp_sq(t_e *e);
 
 #endif
