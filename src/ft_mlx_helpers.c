@@ -58,4 +58,3 @@ void	ft_i_max_chan(t_e *e, char sign)
 	if (sign == '+')
 		e->max += 10;
 }
-

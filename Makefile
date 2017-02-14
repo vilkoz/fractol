@@ -18,7 +18,7 @@ VPATH = src:includes
 
 BIN_DIR = bin/
 
-FLAGS = -O3 -Wall -Wextra -Werror -I$(IDIR) -g
+FLAGS = -O3 -Wall -Wextra -Werror -I$(IDIR)
 
 FLAGS_MLX = -lmlx -framework OpenGl -framework AppKit
 
@@ -62,6 +62,7 @@ clean: libclean
 
 fclean: clean
 	/bin/rm -f $(NAME)
+	make -C libft/ fclean
 
 re: fclean all
 
