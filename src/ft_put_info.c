@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 17:26:17 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/14 19:29:20 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/14 21:44:46 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void		ft_put_fractal_type(t_e *e)
 		ft_putstry(e, "fractal: koch snowflake");
 	if (e->f_type == 5)
 		ft_putstry(e, "fractal: sierpinski triangle");
+	if (e->f_type == 6)
+		ft_putstry(e, "fractal: sierpinski square");
 }
 
 void		ft_put_info(t_e *e)
