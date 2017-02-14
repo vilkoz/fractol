@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/12 18:05:55 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/14 21:42:58 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/15 01:13:55 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void			ft_draw_line(t_e *all, t_p p1, t_p p2)
 	lin = line_init(p1, p2);
 	while (x1 != p2.x || y1 != p2.y)
 	{
-		ft_img_px_put(all, x1, y1, 0xFFFFFF + all->r_sh);
+		ft_img_px_put(all, x1, y1, 0xae30ec + all->r_sh);
 		lin.error2 = lin.error * 2;
 		if (lin.error2 > -lin.dy)
 		{
