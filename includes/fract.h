@@ -16,6 +16,8 @@
 # define A (45 * RAD)
 # define B (45 * RAD)
 # define G (0 * RAD)
+# define USAGE_MSG 0
+# define FRACT_LST 1
 
 # include "../libft/libft.h"
 # include "mlx.h"
@@ -109,6 +111,12 @@ typedef struct		s_e
 	int				r_sh;
 	t_lst			*lst;
 }					t_e;
+
+typedef struct		s_e2
+{
+	t_e				e;
+	t_e				e1;
+}					t_e2;
 
 
 t_e					*ft_mlx_init(char *s, int type, t_e *e);
