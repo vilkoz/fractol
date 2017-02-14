@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 18:39:57 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/12 17:30:49 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/14 17:14:42 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void		ft_iso(t_e *all, int *x, int *y, int *z)
 		+ z1 * sin(A)) * cos(G) + (all->height / 2);
 }
 
-t_lst		*ft_lst_new(int x, int y, int z, int rgb)
+t_lst			*ft_lst_new(int x, int y, int z, int rgb)
 {
 	t_lst	*new;
 
@@ -44,14 +44,14 @@ t_lst		*ft_lst_new(int x, int y, int z, int rgb)
 	return (new);
 }
 
-t_lst		*ft_lst_add(t_lst *old, t_lst *new)
+t_lst			*ft_lst_add(t_lst *old, t_lst *new)
 {
 	if (new != NULL)
 		new->next = old;
 	return (new);
 }
 
-void		ft_putpixels(t_e *e)
+void			ft_putpixels(t_e *e)
 {
 	t_lst	*tmp;
 
@@ -64,7 +64,7 @@ void		ft_putpixels(t_e *e)
 	e->lst = NULL;
 }
 
-t_e			*ft_view(t_e *all)
+t_e				*ft_view(t_e *all)
 {
 	t_lst	*tmp;
 	t_lst	*head;

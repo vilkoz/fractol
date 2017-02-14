@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_mlx_helpers.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vrybalko <vrybalko@student.unit.ua>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/14 17:12:33 by vrybalko          #+#    #+#             */
+/*   Updated: 2017/02/14 18:13:10 by vrybalko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fract.h"
 
 void	keys_init(t_k *k)
@@ -27,13 +39,13 @@ void	ft_mzoom(t_e *e)
 		e->x_sh = e->m_x - e->m_dx / e->zo;
 		e->y_sh = e->m_y - e->m_dy / e->zo;
 	}
-		e->k.m_zo = 0;
+	e->k.m_zo = 0;
 }
 
 void	ft_frac_switch(t_e *e)
 {
 	e->f_type += 1;
-	if (e->f_type > 4)
+	if (e->f_type > 5)
 		e->f_type = 0;
 }
 
@@ -49,6 +61,8 @@ void	ft_fract_ch(t_e *e)
 		ft_sinusoidal(e);
 	if (e->f_type == 4)
 		ft_koch(e);
+	if (e->f_type == 5)
+		ft_serp(e);
 }
 
 void	ft_i_max_chan(t_e *e, char sign)

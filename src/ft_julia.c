@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 16:35:39 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/12 17:42:44 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/14 17:20:38 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void			ft_julia(t_e *e)
 		j = -1;
 		while (++j < e->width)
 		{
-			e->x =  ((j - e->width / 2) * 4. + (e->width * 1.)
+			e->x = ((j - e->width / 2) * 4. + (e->width * 1.)
 					* e->x_sh * e->zo) / (e->width * e->zo);
 			e->y = ((i - e->height / 2) * 4. + (e->height * 1.)
 					* e->y_sh * e->zo) / (e->height * e->zo);

@@ -6,7 +6,7 @@
 #    By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/23 14:08:11 by vrybalko          #+#    #+#              #
-#    Updated: 2017/02/12 20:15:00 by vrybalko         ###   ########.fr        #
+#    Updated: 2017/02/14 18:15:20 by vrybalko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ VPATH = src:includes
 
 BIN_DIR = bin/
 
-FLAGS = -O3 -Wall -Wextra -Werror -I$(IDIR)
+FLAGS = -O3 -Wall -Wextra -Werror -I$(IDIR) -g
 
 FLAGS_MLX = -lmlx -framework OpenGl -framework AppKit
 
@@ -38,7 +38,8 @@ SRCS = main.c					\
 	   ft_view.c				\
 	   ft_koch.c				\
 	   ft_mlx_helpers.c			\
-	   ft_hooks.c
+	   ft_hooks.c				\
+	   ft_serp.c
 
 
 BINS = $(addprefix $(BIN_DIR), $(SRCS:.c=.o))
@@ -52,7 +53,7 @@ libclean:
 	make -C libft/ clean
 
 $(NAME): makelib $(BINS)
-	gcc -o $(NAME) $(BINS) $(FLAGS) $(FLAGS_X11) $(LIB)
+	gcc -o $(NAME) $(BINS) $(FLAGS) $(FLAGS_MLX) $(LIB)
 
 $(BIN_DIR)%.o: %.c
 	gcc $(FLAGS) -c -o $@ $<

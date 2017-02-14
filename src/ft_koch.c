@@ -6,13 +6,13 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/12 18:05:55 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/12 20:40:50 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/14 18:21:46 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
 
-static t_lin	line_init(t_p p1, t_p p2)
+t_lin		line_init(t_p p1, t_p p2)
 {
 	t_lin	lin;
 

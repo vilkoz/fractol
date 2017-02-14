@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 17:16:07 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/12 19:46:11 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/14 18:10:57 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,12 @@ typedef struct		s_e2
 	t_e				e1;
 }					t_e2;
 
+typedef struct		s_tr
+{
+	t_p				p1;
+	t_p				p2;
+	t_p				p3;
+}					t_tr;
 
 t_e					*ft_mlx_init(char *s, int type, t_e *e);
 void				ft_img_px_put(t_e *e, int x, int y, int rgb);
@@ -143,5 +149,9 @@ int					key_release(int key, t_e *e);
 int					loop_hook(t_e *e);
 int					mouse_hook(int key, int x, int y, t_e *e);
 int					move_hook(int x, int y, t_e *e);
+t_lin				line_init(t_p p1, t_p p2);
+void				ft_draw_line(t_e *all, t_p p1, t_p p2);
+t_p					point_in(int x, int y);
+void				ft_serp(t_e *e);
 
 #endif
