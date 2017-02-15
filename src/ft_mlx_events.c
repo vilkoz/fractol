@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 15:26:45 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/12 20:49:56 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/15 13:04:52 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ void	ft_tr_d_switch(t_e *e)
 		e->k.tr_d = 0;
 }
 
+int		exit_hook(void *param)
+{
+	(void)param;
+	exit(0);
+	return (0);
+}
+
 void	ft_mlx_events(t_e *e)
 {
 	keys_init(&(e->k));
@@ -27,4 +34,5 @@ void	ft_mlx_events(t_e *e)
 	mlx_hook(e->win, 3, 2, key_release, e);
 	mlx_mouse_hook(e->win, mouse_hook, e);
 	mlx_hook(e->win, 6, 65, move_hook, e);
+	mlx_hook(e->win, 17, 1L << 17, exit_hook, e);
 }
