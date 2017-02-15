@@ -6,7 +6,7 @@
 /*   By: vrybalko <vrybalko@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 17:39:13 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/14 18:19:41 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/15 20:50:21 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,5 @@ void	ft_serp(t_e *e)
 			(e->width / 2) - (e->x_sh * e->width * e->zo) / 4,
 			((0.5) * e->height * e->zo) / 4 +
 			(e->height / 2) - (e->y_sh * e->height * e->zo) / 4);
-	draw_triangle(e, 10, triangle_in(p1, p2, p3));
+	draw_triangle(e, e->max / 10 + 4, triangle_in(p1, p2, p3));
 }

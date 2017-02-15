@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 17:16:07 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/14 21:26:59 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/15 19:19:36 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,5 +162,6 @@ void				ft_draw_line(t_e *all, t_p p1, t_p p2);
 t_p					point_in(int x, int y);
 void				ft_serp(t_e *e);
 void				ft_serp_sq(t_e *e);
+void				ft_koch_quad(t_e *e);
 
 #endif

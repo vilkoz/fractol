@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/12 18:05:55 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/15 01:13:55 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/15 20:23:51 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,8 @@ void			ft_koch(t_e *e)
 			(e->width / 2) - (e->x_sh * e->width * e->zo) / 4,
 			((0.5) * e->height * e->zo) / 4 +
 			(e->height / 2) - (e->y_sh * e->height * e->zo) / 4);
-	draw_segment(e, 10, p1, p2);
-	draw_segment(e, 10, p2, p3);
-	draw_segment(e, 10, p3, p1);
+	draw_segment(e, e->max / 10 + 4, p1, p2);
+	draw_segment(e, e->max / 10 + 4, p2, p3);
+	draw_segment(e, e->max / 10 + 4, p3, p1);
 	ft_img_px_put(e, e->width / 2, e->height / 2, 0xffffff);
 }

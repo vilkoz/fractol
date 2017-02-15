@@ -6,7 +6,7 @@
 /*   By: vrybalko <vrybalko@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 17:12:33 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/14 21:30:13 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/15 20:12:36 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_mzoom(t_e *e)
 void	ft_frac_switch(t_e *e)
 {
 	e->f_type += 1;
-	if (e->f_type > 6)
+	if (e->f_type > 7)
 		e->f_type = 0;
 }
 
@@ -65,6 +65,8 @@ void	ft_fract_ch(t_e *e)
 		ft_serp(e);
 	if (e->f_type == 6)
 		ft_serp_sq(e);
+	if (e->f_type == 7)
+		ft_koch_quad(e);
 }
 
 void	ft_i_max_chan(t_e *e, char sign)
