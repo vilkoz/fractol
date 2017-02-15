@@ -6,20 +6,22 @@
 /*   By: vrybalko <vrybalko@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 17:54:13 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/15 20:46:18 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/02/15 21:23:51 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
 
-static t_p		tip_return(t_p p1,	t_p p2, t_p p3, t_p dist)
+static t_p		tip_return(t_p p1, t_p p2, t_p p3, t_p dist)
 {
 	t_p		p_tip;
+	int		y;
 
-	p_tip = point_in((dist.x == 0) ?
-		(p2.y > p1.y ? p1.x - 3 * dist.y / 3 : p1.x - 3 * dist.y / 3 ) : p3.x,
-		(dist.y == 0) ? (p2.x > p1.x ? p1.y - 3 * dist.x / 3 :
-		p1.y + 3 * dist.x / 3 ) : p3.y);
+	if (dist.y == 0)
+		y = (p2.x > p1.x ? p1.y - 3 * dist.x / 3 : p1.y + 3 * dist.x / 3);
+	else
+		y = p3.y;
+	p_tip = point_in((dist.x == 0) ? p1.x - 3 * dist.y / 3 : p3.x, y);
 	return (p_tip);
 }
 
@@ -48,7 +50,7 @@ static void		draw_segment(t_e *e, int iter, t_p p1, t_p p2)
 	}
 }
 
-void	ft_koch_quad(t_e *e)
+void			ft_koch_quad(t_e *e)
 {
 	t_p		p1;
 	t_p		p2;
