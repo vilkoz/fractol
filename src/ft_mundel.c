@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 16:35:28 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/03/01 01:22:11 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/03/01 01:24:38 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void			*ft_mundel_slice(void *a)
 
 	s = (t_slice *)a;
 	e = s->e;
-	i = s->y_start;
+	i = s->y_start - 1;
 	while (++i < s->y_end)
 	{
 		j = -1;
