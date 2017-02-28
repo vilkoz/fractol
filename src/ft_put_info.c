@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 17:26:17 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/15 20:51:58 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/03/01 01:07:14 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void		ft_put_fractal_type(t_e *e)
 void		ft_put_info(t_e *e)
 {
 	ft_putstry(e, ft_strjoin("Zoom: ", ft_itoa((int)(e->zo * 100))));
+	ft_putstry(e, ft_strjoin("Time: ", ft_itoa((int)(e->time))));
 	ft_put_fractal_type(e);
 	if (e->f_type == 0 && e->k.m_co == 1)
 		ft_putstry(e, "mouse control: on");

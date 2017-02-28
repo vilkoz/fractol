@@ -6,7 +6,7 @@
 /*   By: vrybalko <vrybalko@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 17:13:21 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/15 17:50:47 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/03/01 01:14:40 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int		key_release(int key, t_e *e)
 
 int		loop_hook(t_e *e)
 {
+	clock_t		time;
+
 	(e->k.x_sh == 1) ? e->x_sh += 0.1 / e->zo : (void)e->k.gopa;
 	(e->k.x_sh == -1) ? e->x_sh -= 0.1 / e->zo : (void)e->k.gopa;
 	(e->k.y_sh == 1) ? e->y_sh -= 0.1 / e->zo : (void)e->k.gopa;
@@ -64,7 +66,9 @@ int		loop_hook(t_e *e)
 	(e->k.b_sh == 1) ? e->r_sh += 0x11 : (void)e->k.gopa;
 	mlx_destroy_image(e->mlx, e->img);
 	e->img = mlx_new_image(e->mlx, e->width, e->height);
+	time = clock();
 	ft_fract_ch(e);
+	e->time = clock() - time;
 	(e->k.tr_d == 1) ? e = ft_view(e) : (void)e->k.gopa;
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	ft_put_info(e);

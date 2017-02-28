@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 17:16:07 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/02/15 19:19:36 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/03/01 01:19:19 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@
 # define G (0 * RAD)
 # define USAGE_MSG 0
 # define FRACT_LST 1
+# define THREAD_NUM 32
 
 # include "../libft/libft.h"
 # include "mlx.h"
 # include <math.h>
+# include <pthread.h>
+# include <time.h>
 
 /*
 ** struct for key events
@@ -110,6 +113,7 @@ typedef struct		s_e
 	double			m_y;
 	int				r_sh;
 	t_lst			*lst;
+	double			time;
 }					t_e;
 
 typedef struct		s_e2
@@ -132,6 +136,20 @@ typedef struct		s_sq
 	t_p				p3;
 	t_p				p4;
 }					t_sq;
+
+typedef struct		s_slice
+{
+	pthread_t		id;
+	t_e				*e;
+	int				y_start;
+	int				y_end;
+	double			x;
+	double			x_2;
+	double			y;
+	double			c_re;
+	double			c_im;
+	int				iter;
+}					t_slice;
 
 t_e					*ft_mlx_init(char *s, int type, t_e *e);
 void				ft_img_px_put(t_e *e, int x, int y, int rgb);

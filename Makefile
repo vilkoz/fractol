@@ -6,7 +6,7 @@
 #    By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/23 14:08:11 by vrybalko          #+#    #+#              #
-#    Updated: 2017/02/15 19:19:55 by vrybalko         ###   ########.fr        #
+#    Updated: 2017/03/01 01:02:34 by vrybalko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ VPATH = src:includes
 
 BIN_DIR = bin/
 
-FLAGS = -O3 -Wall -Wextra -Werror -I$(IDIR) -g
+FLAGS = -Wall -Wextra -Werror -I$(IDIR) -g -pthread
 
 FLAGS_MLX = -lmlx -framework OpenGl -framework AppKit
 
@@ -55,7 +55,7 @@ libclean:
 	make -C libft/ clean
 
 $(NAME): makelib $(BINS)
-	gcc -o $(NAME) $(BINS) $(FLAGS) $(FLAGS_MLX) $(LIB)
+	gcc -o $(NAME) $(BINS) $(FLAGS) $(FLAGS_X11) $(LIB)
 
 $(BIN_DIR)%.o: %.c
 	gcc $(FLAGS) -c -o $@ $<
@@ -70,4 +70,4 @@ fclean: clean
 re: fclean all
 
 f: all
-	./$(NAME) koch
+	./$(NAME) mandelbrot
