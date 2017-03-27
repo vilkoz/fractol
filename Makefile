@@ -6,7 +6,7 @@
 #    By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/23 14:08:11 by vrybalko          #+#    #+#              #
-#    Updated: 2017/03/01 01:02:34 by vrybalko         ###   ########.fr        #
+#    Updated: 2017/03/27 14:51:36 by vrybalko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,12 @@ fclean: clean
 	make -C libft/ fclean
 
 re: fclean all
+
+fast_re:
+	/bin/rm -f $(BINS)
+	/bin/rm -f $(NAME)
+
+fre: fast_re all
 
 f: all
 	./$(NAME) mandelbrot

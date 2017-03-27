@@ -6,31 +6,21 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 16:35:28 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/03/01 01:24:38 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/03/27 15:11:26 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
 
-static int		connect_rgb(int r, int g, int b)
+static void		ft_iterate(t_e *e, t_slice *s, int i, int j)
 {
-	return ((r << 16) + (g << 8) + b);
-}
-
-static int		*init_colors(t_e *e)
-{
-	int		i;
-	int		*colors;
-
-	i = -1;
-	colors = (int *)malloc(sizeof(int) * e->max);
-	while (++i < e->max)
-		colors[i] = connect_rgb(i * 5, 1, i * 10);
-	return (colors);
-}
-
-static void		ft_iterate(t_e *e, t_slice *s)
-{
+	s->c_re = ((j - e->width / 2) * 4. + (e->width * 1.)
+			* e->x_sh * e->zo) / (e->width * e->zo);
+	s->c_im = ((i - e->height / 2) * 4. + (e->height * 1.)
+			* e->y_sh * e->zo) / (e->height * e->zo);
+	s->x = 0;
+	s->y = 0;
+	s->iter = 0;
 	while (s->x * s->x + s->y * s->y < 4 && s->iter < e->max)
 	{
 		s->x_2 = s->x * s->x - s->y * s->y + s->c_re;
@@ -95,14 +85,7 @@ void			*ft_mundel_slice(void *a)
 		j = -1;
 		while (++j < e->width)
 		{
-			s->c_re = ((j - e->width / 2) * 4. + (e->width * 1.)
-					* e->x_sh * e->zo) / (e->width * e->zo);
-			s->c_im = ((i - e->height / 2) * 4. + (e->height * 1.)
-					* e->y_sh * e->zo) / (e->height * e->zo);
-			s->x = 0;
-			s->y = 0;
-			s->iter = 0;
-			ft_iterate(e, s);
+			ft_iterate(e, s, i, j);
 			ft_three(e, j, i, s);
 		}
 	}
@@ -111,21 +94,23 @@ void			*ft_mundel_slice(void *a)
 
 void			ft_mundel(t_e *e)
 {
-	t_slice		s[THREAD_NUM];
-	int			i;
-	int			y;
-	int			dy;
+	t_slice			s[THREAD_NUM];
+	pthread_attr_t	attr;
+	int				i;
+	int				y;
+	int				dy;
 
-	dy = e->height / THREAD_NUM;
+	dy = e->height / (THREAD_NUM);
 	y = 0;
 	i = -1;
-	e->colors = init_colors(e);
+	pthread_attr_init(&attr);
+	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
 	while (++i < THREAD_NUM)
 	{
 		s[i].y_start = y;
 		s[i].y_end = y + dy;
 		s[i].e = e;
-		pthread_create(&(s[i].id), NULL, ft_mundel_slice, s + i);
+		pthread_create(&(s[i].id), &attr, ft_mundel_slice, s + i);
 		y += dy;
 	}
 	i = -1;

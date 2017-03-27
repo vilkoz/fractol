@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 17:16:07 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/03/01 01:19:19 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/03/27 15:11:53 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@
 # define G (0 * RAD)
 # define USAGE_MSG 0
 # define FRACT_LST 1
-# define THREAD_NUM 32
+# define THREAD_NUM 4
 
 # include "../libft/libft.h"
 # include "mlx.h"
 # include <math.h>
 # include <pthread.h>
 # include <time.h>
+# include <sys/time.h>
+
+typedef struct timeval s_t;
 
 /*
 ** struct for key events
@@ -114,6 +117,7 @@ typedef struct		s_e
 	int				r_sh;
 	t_lst			*lst;
 	double			time;
+	double			ftime;
 }					t_e;
 
 typedef struct		s_e2
