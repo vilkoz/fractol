@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 17:16:07 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/03/01 01:19:19 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/07/07 23:56:54 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,7 @@ typedef struct		s_slice
 	double			c_re;
 	double			c_im;
 	int				iter;
+	int				tmp_color;
 }					t_slice;
 
 t_e					*ft_mlx_init(char *s, int type, t_e *e);

@@ -6,7 +6,7 @@
 /*   By: vrybalko <vrybalko@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 17:13:21 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/03/01 01:14:40 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/07/07 23:54:45 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		loop_hook(t_e *e)
 	e->time = clock() - time;
 	(e->k.tr_d == 1) ? e = ft_view(e) : (void)e->k.gopa;
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-	ft_put_info(e);
+	/* ft_put_info(e); */
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: vrybalko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 16:35:28 by vrybalko          #+#    #+#             */
-/*   Updated: 2017/03/01 01:24:38 by vrybalko         ###   ########.fr       */
+/*   Updated: 2017/07/07 23:59:46 by vrybalko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,17 @@ static void		ft_three(t_e *e, int j, int i, t_slice *s)
 						e->colors[s->iter] + e->r_sh));
 	}
 	else if (e->k.tr_d != 1)
-		(s->iter < e->max) ? ft_img_px_put(e, j, i, e->colors[s->iter] +
-				e->r_sh) : ft_img_px_put(e, j, i, 0);
+	{
+		/* (s->iter < e->max) ? ft_img_px_put(e, j, i, e->colors[s->iter] + */
+		/* 		e->r_sh) : ft_img_px_put(e, j, i, 0); */
+		if (s->iter < e->max)
+		{
+			s->tmp_color = e->colors[s->iter] + e->r_sh;
+			ft_img_px_put(e, j, i, e->colors[s->iter] + e->r_sh);
+		}
+		else
+			ft_img_px_put(e, j, i, s->tmp_color);
+	}
 }
 
 //void			ft_mundel(t_e *e)
